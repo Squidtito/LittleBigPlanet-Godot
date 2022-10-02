@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfhfbwdcv1bps"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_kubry"]
+[ext_resource type="PackedScene" uid="uid://dd7fm6q2nlg4r" path="res://sackboi/mat/ps_4_sackboyeevee.tscn" id="1_wwy56"]
+[ext_resource type="Script" path="res://sackboi/mat/ps_4_sackboyeevee.gd" id="2_15k4o"]
+[ext_resource type="PackedScene" uid="uid://dc6fnrah7af0r" path="res://pod/pod.tscn" id="4_1ka4b"]
+[ext_resource type="PackedScene" uid="uid://crvguy5v7rskk" path="res://pod/controller.tscn" id="5_at8ik"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_p53dm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g0ydu"]
+sky_top_color = Color(0.0470588, 0, 0.427451, 1)
+sky_horizon_color = Color(0, 0.168627, 0.541176, 1)
+sky_curve = 0.0699775
+ground_bottom_color = Color(0.12549, 0, 0.52549, 1)
+ground_horizon_color = Color(0, 0.168627, 0.541176, 1)
+sun_angle_max = 253.33
+sun_curve = 0.0749999
+
+[sub_resource type="Sky" id="Sky_slhi7"]
+sky_material = SubResource("ProceduralSkyMaterial_g0ydu")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_ebnmu"]
+background_mode = 2
+sky = SubResource("Sky_slhi7")
+sky_custom_fov = 180.0
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_upg45"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oh2rk"]
+size = Vector3(4.4825, 11.491, 3.32182)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_kubry")
+
+[node name="CpuParticles3d" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.6762, 25.9153, -90.9985)
+amount = 100
+lifetime = 22.96
+preprocess = 4.68
+speed_scale = 10.74
+randomness = 0.82
+fixed_fps = 30
+mesh = SubResource("SphereMesh_p53dm")
+emission_shape = 1
+emission_sphere_radius = 24.83
+emission_colors = PackedColorArray(1, 1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 6.31
+flatness = 0.68
+gravity = Vector3(0, 0, 10)
+
+[node name="CpuParticles3d2" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.676, 25.915, -90.999)
+amount = 100
+lifetime = 22.96
+preprocess = 4.68
+speed_scale = 10.74
+randomness = 0.82
+fixed_fps = 30
+mesh = SubResource("SphereMesh_p53dm")
+emission_shape = 1
+emission_sphere_radius = 24.83
+emission_colors = PackedColorArray(1, 1, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 6.31
+flatness = 0.68
+gravity = Vector3(0, 0, 10)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.1118, 51.8813)
+current = true
+fov = 75.7
+near = 10.0
+
+[node name="LightmapGi" type="LightmapGI" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41.7062, -19.3906)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="LightmapGi"]
+environment = SubResource("Environment_ebnmu")
+camera_attributes = SubResource("CameraAttributesPractical_upg45")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="LightmapGi/WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 41.7062, -19.3906)
+shadow_enabled = true
+shadow_opacity = 0.54
+
+[node name="pod2" parent="." instance=ExtResource("4_1ka4b")]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, -95.055, 0)
+
+[node name="CharacterBody3d" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 63.1387, -33.9029)
+script = ExtResource("2_15k4o")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="CharacterBody3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.29504, 0)
+shape = SubResource("BoxShape3D_oh2rk")
+
+[node name="ps4sackboyeevee" parent="CharacterBody3d" instance=ExtResource("1_wwy56")]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, -0.812274, -0.000148773)
+
+[node name="controller" parent="." instance=ExtResource("5_at8ik")]
+transform = Transform3D(0.1, 0, 0, 0, -0.00872079, 0.099619, 0, -0.099619, -0.00872079, -6.92512, -5.91703, -24.867)

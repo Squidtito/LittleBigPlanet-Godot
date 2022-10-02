@@ -1,0 +1,6 @@
+[gd_resource type="RibbonTrailMesh" format=3 uid="uid://c6relsx24nawo"]
+
+[resource]
+custom_aabb = AABB(10, 0, 0, 0, 0, 0)
+size = 15.125
+sections = 2
