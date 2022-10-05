@@ -3,6 +3,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	RenderingServer.SUB_SURFACE_SCATTERING_QUALITY_DISABLED
 	pass # Replace with function body.
 
 

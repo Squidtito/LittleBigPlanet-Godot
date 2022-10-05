@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://crvguy5v7rskk"]
 
-[ext_resource type="PackedScene" uid="uid://c6opd1p5g25p7" path="res://pod/controller.blend" id="1_eywmu"]
-[ext_resource type="Texture2D" uid="uid://d2bu0ib7cmt6w" path="res://pod/textures/ps3_dual_shock_decals_diffuse.png" id="2_0o82q"]
-[ext_resource type="Texture2D" uid="uid://ctsjrykei3a3k" path="res://pod/textures/ps3_dual_shock_flat_colour.png" id="3_jwf4i"]
-[ext_resource type="Texture2D" uid="uid://b1rh0l8hi2bj2" path="res://pod/textures/ps3_dual_shock_bump_converted.png" id="4_oyoa5"]
+[ext_resource type="PackedScene" uid="uid://drxvhfwqqaygd" path="res://pod/controller.blend" id="1_eywmu"]
+[ext_resource type="Texture2D" uid="uid://dhapr3jqd1gk5" path="res://pod/textures/ps3_dual_shock_decals_diffuse.png" id="2_0o82q"]
+[ext_resource type="Texture2D" uid="uid://tvw3rrki6wwn" path="res://pod/textures/ps3_dual_shock_flat_colour.png" id="3_jwf4i"]
+[ext_resource type="Texture2D" uid="uid://c6acwkdc7itup" path="res://pod/textures/ps3_dual_shock_bump_converted.png" id="4_oyoa5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2fko"]
 resource_name = "ps3_dual_shock_case"
