@@ -6,6 +6,7 @@ var movement = 1
 var layerb_or_f = 'f'
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	position.z = layer*15-50
 	pass # Replace with function body.
 
 
@@ -27,7 +28,6 @@ func _physics_process(delta):
 			if not layer == 2:
 				layer += 1
 				layerb_or_f = 'f'
-		position.z = layer*15-50
 		check_col(layerb_or_f)
 		
 		if Input.is_action_pressed("left"):
@@ -47,6 +47,8 @@ func _physics_process(delta):
 			vel = 0
 		velocity = Vector3(vel*130,up,0)
 		move_and_slide()
+		self.transform.origin.z = layer*15-50
+		self.set_axis_lock(4,true)
 		
 func check_col(one):
 	pass

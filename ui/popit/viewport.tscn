@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://nvx7s0h8db4o"]
+
+[ext_resource type="PackedScene" uid="uid://dd7fm6q2nlg4r" path="res://sackboi/ps_4_sackboyeevee.tscn" id="1_1m6vk"]
+[ext_resource type="Script" path="res://ui/popit/viewport.gd" id="1_4pvni"]
+
+[sub_resource type="Environment" id="Environment_q02c2"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+ambient_light_color = Color(1, 1, 1, 1)
+glow_enabled = true
+glow_hdr_scale = 4.0
+adjustment_enabled = true
+
+[node name="viewport" type="Node3D"]
+visible = false
+script = ExtResource("1_4pvni")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control"]
+visible = false
+offset_top = -4.0
+offset_right = 87.0
+offset_bottom = 172.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+use_occlusion_culling = true
+size = Vector2i(87, 176)
+render_target_update_mode = 0
+
+[node name="Camera3d" type="Camera3D" parent="Control/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.415, 8.78972)
+visible = false
+environment = SubResource("Environment_q02c2")
+current = true
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="Control/SubViewportContainer/SubViewport/Camera3d"]
+visible = false
+light_energy = 0.655
+
+[node name="ps4sackboyeevee" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("1_1m6vk")]
+transform = Transform3D(0.0495413, 0.000553796, 0.00673451, 0, 0.0498318, -0.0040978, -0.00675725, 0.0040602, 0.0493746, 0, 0, 0)
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 349.0
+offset_top = -3.0
+offset_right = 709.0
+offset_bottom = 377.0
+stretch_mode = 4

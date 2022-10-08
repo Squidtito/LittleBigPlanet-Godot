@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c77nuuqn0wyx7"]
+
+[ext_resource type="Script" path="res://ui/fps/fps.gd" id="1_hemt3"]
+
+[node name="fps counter" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_hemt3")
